@@ -482,7 +482,7 @@ export class Agent extends MessageHandler implements ExtensionClient {
 
         this.registerNotification('textDocument/didSave', async params => {
             const uri = vscode.Uri.parse(params.uri)
-            const document = await vscode.workspace.openTextDocument(uri)
+            const document = await this.workspace.openTextDocument(uri)
             vscode_shim.onDidSaveTextDocument.fire(document)
         })
 

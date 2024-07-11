@@ -983,11 +983,11 @@ export class FixupController
         const range = new vscode.Range(pos, pos)
         task.selectionRange = range
         task.insertionPoint = range.start
-        task.fixupFile = this.files.replaceFile(task.fixupFile.uri, newFileUri)
+        task.fixupFile = this.files.replaceFile(task.fixupFile.uri, doc.uri)
 
         // Set original text to empty as we are not replacing original text but appending to file
         task.original = ''
-        task.destinationFile = newFileUri
+        task.destinationFile = doc.uri
 
         // Show the new document before streaming start
         await vscode.window.showTextDocument(doc, {

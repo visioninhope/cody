@@ -50,7 +50,7 @@ export async function getContextFileFromUri(
             return {
                 type: 'file',
                 content,
-                uri: file,
+                uri: doc.uri,
                 source: ContextItemSource.Editor,
                 range: toRangeData(range),
                 size,
